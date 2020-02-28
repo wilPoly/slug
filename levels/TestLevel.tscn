@@ -7,7 +7,7 @@ extents = Vector2( 512, 32 )
 
 [node name="TestLevel" type="Node2D"]
 __meta__ = {
-"_edit_horizontal_guides_": [ 600.0 ],
+"_edit_horizontal_guides_": [ 600.0, 534.0 ],
 "_edit_vertical_guides_": [ 1024.0 ]
 }
 
@@ -23,3 +23,4 @@ position = Vector2( 512, 565 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 192, 320 )
