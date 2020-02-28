@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://entities/Player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 512, 32 )
+
+[node name="TestLevel" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 600.0 ],
+"_edit_vertical_guides_": [ 1024.0 ]
+}
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Floor"]
+position = Vector2( 0, 22 )
+color = Color( 0.254902, 0.654902, 0.129412, 1 )
+polygon = PoolVector2Array( 0, 512, 1024, 512, 1024, 576, 0, 576 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 512, 565 )
+shape = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
