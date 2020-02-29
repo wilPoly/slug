@@ -3,16 +3,14 @@
 [ext_resource path="res://entities/Player.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+extents = Vector2( 16, 40 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( 0, 16 )
+position = Vector2( 0, 40 )
+scale = Vector2( 1, 2.5 )
 color = Color( 0.172549, 0.788235, 0.513726, 1 )
 polygon = PoolVector2Array( -16, 0, 16, 0, 16, -32, -16, -32 )
 
