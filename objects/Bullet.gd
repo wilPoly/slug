@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (int) var speed: = 0 # ????
+export (int) var speed: = 25
 var velocity: = Vector2()
 
 
@@ -10,12 +10,8 @@ func start(pos):
 
 
 func _physics_process(delta: float) -> void:
-#	velocity.x += speed
 	move_and_collide(velocity * speed * delta)
 
-
-#func _process(delta: float) -> void:
-#	print(velocity * speed * delta)
 
 func _on_screen_exited() -> void:
 	queue_free()
