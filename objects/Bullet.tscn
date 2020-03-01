@@ -7,7 +7,7 @@ extents = Vector2( 4, 4 )
 
 [node name="Bullet" type="KinematicBody2D"]
 collision_layer = 8
-collision_mask = 7
+collision_mask = 5
 script = ExtResource( 1 )
 speed = 50
 
@@ -17,3 +17,9 @@ polygon = PoolVector2Array( -8, -8, 8, -8, 8, 8, -8, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+disabled = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 1.86265e-09, -1.86265e-09 )
+scale = Vector2( 0.4, 0.4 )
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_screen_exited"]
