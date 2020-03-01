@@ -9,6 +9,7 @@ export (int) var jump_speed: = -400
 export (int) var gravity: = 1200
 
 var velocity: = Vector2()
+var last_direction: = Vector2()
 var jumping: = false
 
 
@@ -21,14 +22,14 @@ func _physics_process(delta: float) -> void:
 		$RayCast2D.cast_to = velocity
 	if jumping and is_on_floor():
 		jumping = false
-	
+	# Movement
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+	
 	# DEBUG - Broadcast direction
 	emit_signal("direction", velocity)
 
 
 func get_input() -> void:
-	#var direction: = Vector2()
 	# Left-Right
 	velocity.x = (Input.get_action_strength("right") - Input.get_action_strength("left")) * player_speed
 	# Jump
@@ -37,14 +38,18 @@ func get_input() -> void:
 		velocity.y = jump_speed
 	# Shoot
 	if Input.is_action_just_pressed("shoot"):
-		shoot()
+		shoot(get_direction())
 
 
-func get_direction() -> void:
-	pass
+func get_direction() -> Vector2:
+	if velocity != Vector2.ZERO:
+		last_direction = velocity.normalized()
+	return last_direction
+	emit_signal("direction", last_direction)
 	
 
-func shoot() -> void:
+func shoot(dir) -> void:
+	var direction: Vector2 = dir
 	var b = Bullet.instance()
-	b.start($Muzzle.global_position)
+	b.start($Muzzle.global_position, direction)
 	get_parent().add_child(b)

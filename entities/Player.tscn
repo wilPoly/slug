@@ -21,7 +21,6 @@ cast_to = Vector2( 20, 0 )
 collision_mask = 13
 
 [node name="Muzzle" type="Position2D" parent="."]
-position = Vector2( 9, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

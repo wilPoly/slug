@@ -4,9 +4,12 @@ export (int) var speed: = 25
 var velocity: = Vector2()
 
 
-func start(pos):
+func start(pos, direction):
 	position = pos
-	velocity = Vector2(speed, 0)
+	if direction.x > 0:
+		velocity = Vector2(speed, 0)
+	elif direction.x < 0:
+		velocity = Vector2(-speed, 0)
 
 
 func _physics_process(delta: float) -> void:
