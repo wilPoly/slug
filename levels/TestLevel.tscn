@@ -255,19 +255,22 @@ tile_data = PoolIntArray( 1245199, 2, 4, 1245200, 2, 2, 1245201, 2, 2, 1245202, 
 position = Vector2( 222, 388 )
 
 [node name="Velocity" type="Label" parent="."]
-margin_left = 38.0
-margin_top = 33.0
-margin_right = 78.0
-margin_bottom = 47.0
+margin_left = 21.0
+margin_top = 105.0
+margin_right = 61.0
+margin_bottom = 119.0
+text = "Velocity"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Direction" type="Label" parent="."]
-margin_left = 38.0
-margin_top = 64.0
-margin_right = 78.0
-margin_bottom = 78.0
+margin_left = 21.0
+margin_top = 126.0
+margin_right = 61.0
+margin_bottom = 140.0
+rect_pivot_offset = Vector2( 252, 105 )
+text = "Direction"
 __meta__ = {
 "_edit_use_anchors_": false
 }

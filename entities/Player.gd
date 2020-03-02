@@ -37,7 +37,7 @@ func get_input() -> void:
 	# Left-Right
 	velocity.x = (Input.get_action_strength("right") - Input.get_action_strength("left")) * player_speed
 	# Jump
-	if Input.is_action_pressed("jump") and is_on_floor():	
+	if Input.is_action_just_pressed("jump") and is_on_floor():	
 		jumping = true
 		velocity.y = jump_speed
 	# Shoot

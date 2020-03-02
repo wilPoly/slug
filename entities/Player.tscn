@@ -27,3 +27,6 @@ cast_to = Vector2( 20, 0 )
 collision_mask = 13
 
 [node name="Muzzle" type="Position2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
