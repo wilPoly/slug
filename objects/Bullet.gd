@@ -1,15 +1,12 @@
 extends KinematicBody2D
 
 export (int) var speed: = 25
-var velocity: = Vector2()
+var velocity: = Vector2(1, 0)
 
 
 func start(pos, direction):
 	position = pos
-	if direction.x > 0:
-		velocity = Vector2(speed, 0)
-	elif direction.x < 0:
-		velocity = Vector2(-speed, 0)
+	velocity = Vector2(direction.x * speed, 0)
 
 
 func _physics_process(delta: float) -> void:
