@@ -48,8 +48,10 @@ func get_input() -> void:
 func get_direction() -> void:
 	if velocity.x < 0:
 		direction = Vector2(-1, 0)
+		$Sprite.flip_h = true
 	elif velocity.x > 0:
 		direction = Vector2(1, 0)
+		$Sprite.flip_h = false
 	
 
 func shoot() -> void:
