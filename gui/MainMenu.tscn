@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/title_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/text_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://gui/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://gui/menu_theme.tres" type="Theme" id=4]
+
+[node name="MainMenu" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.0
+margin_top = -130.0
+margin_right = 76.0
+margin_bottom = -54.0
+custom_fonts/font = ExtResource( 1 )
+text = "Slug"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.0
+margin_top = -34.0
+margin_right = 76.0
+margin_bottom = 34.0
+focus_neighbour_bottom = NodePath("../Quit")
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 2 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.0
+margin_top = 55.0
+margin_right = 76.0
+margin_bottom = 123.0
+focus_neighbour_top = NodePath("../Play")
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 2 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Play" to="." method="_on_Play_button_down"]
+[connection signal="button_down" from="Quit" to="." method="_on_Quit_button_down"]
