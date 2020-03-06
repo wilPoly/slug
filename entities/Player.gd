@@ -1,18 +1,20 @@
 extends KinematicBody2D
 
-var Bullet: = preload("res://objects/Bullet.tscn")
 
 # DEBUG
 signal debug_velocity
 signal debug_direction
 
-export (int) var player_speed: = 200
-export (int) var jump_speed: = -400
-export (int) var gravity: = 1200
+const Bullet := preload("res://objects/Bullet.tscn")
+#const PauseMenu := preload("res://gui/PauseMenu.tscn")
 
-var velocity: = Vector2()
-var direction: = Vector2(1, 0)
-var jumping: = false
+export (int) var speed := 200
+export (int) var jump_speed := -400
+export (int) var gravity := 1200
+
+var velocity := Vector2()
+var direction := Vector2(1, 0)
+var jumping := false
 
 
 func _physics_process(delta: float) -> void:
@@ -35,7 +37,7 @@ func _physics_process(delta: float) -> void:
 
 func get_input() -> void:
 	# Left-Right
-	velocity.x = (Input.get_action_strength("right") - Input.get_action_strength("left")) * player_speed
+	velocity.x = (Input.get_action_strength("right") - Input.get_action_strength("left")) * speed
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():	
 		jumping = true
@@ -55,6 +57,6 @@ func get_direction() -> void:
 	
 
 func shoot() -> void:
-	var b = Bullet.instance()
+	var b := Bullet.instance()
 	b.start($Muzzle.global_position, direction)
 	get_parent().add_child(b)

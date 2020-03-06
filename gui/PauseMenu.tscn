@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gui/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://gui/menu_theme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/title_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/text_font.tres" type="DynamicFont" id=5]
+
+[node name="PauseMenu" type="Popup"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.196078 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -169.0
+margin_top = -130.0
+margin_right = 169.0
+margin_bottom = -54.0
+custom_fonts/font = ExtResource( 4 )
+text = "Paused"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.0
+margin_top = -34.0
+margin_right = 76.0
+margin_bottom = 34.0
+focus_neighbour_bottom = NodePath("../Quit")
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 5 )
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Retry" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.0
+margin_top = 60.0
+margin_right = 76.0
+margin_bottom = 128.0
+focus_neighbour_bottom = NodePath("../Quit")
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 5 )
+text = "Retry"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.0
+margin_top = 155.0
+margin_right = 76.0
+margin_bottom = 223.0
+focus_neighbour_top = NodePath("../Play")
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 5 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="Continue" to="." method="_on_Continue_button_up"]
+[connection signal="button_up" from="Retry" to="." method="_on_Retry_button_up"]
+[connection signal="button_up" from="Quit" to="." method="_on_Quit_button_up"]

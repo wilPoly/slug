@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-export (int) var speed: = 25
-var velocity: = Vector2(1, 0)
+export (int) var speed := 25
+var velocity := Vector2(1, 0)
 
 
 func start(pos, direction):
